@@ -20,24 +20,24 @@ public class Main {
 		g.addArc(34,15);g.addArc(36,0);g.addArc(35,5);*/
 
 
-/*----------Graphe avec 6 noeuds----------*/
-//		g=new Graphe(6);
-//		g.addArc(1,2);
-//		g.addArc(6,2);
-//		g.addArc(5,4);
-//		g.addArc(2,3);
-//		g.addArc(4,2);
-//		g.addArc(5,2);
-//		g.addArc(3,2);
-//		g.addArc(2,5);
-//		g.addArc(1,5);
-//		g.addArc(4,2);
-//		g.addArc(5,2);
-//		g.addArc(3,2);
-//		g.addArc(1,5);
-//		g.addArc(0,5);
-    	
-    	/*-------Graphe avec 100 noeuds-------*/
+		/*----------Graphe avec 6 noeuds----------*/
+	/*	g=new Graphe(6);
+		g.addArc(1,2);
+		g.addArc(6,2);
+		g.addArc(5,4);
+		g.addArc(2,3);
+		g.addArc(4,2);
+		g.addArc(5,2);
+		g.addArc(3,2);
+		g.addArc(2,5);
+		g.addArc(1,5);
+		g.addArc(4,2);
+		g.addArc(5,2);
+		g.addArc(3,2);
+		g.addArc(1,5);
+		g.addArc(0,5);*/
+
+		/*-------Graphe avec 100 noeuds-------*/
 //    	g=new Graphe(100);
 //    	g.addArc(0,1);g.addArc(1,3);g.addArc(1,5);g.addArc(1,6);g.addArc(1,7);g.addArc(2,1);g.addArc(3,2);g.addArc(3,6);
 //		g.addArc(4,2);g.addArc(4,9);g.addArc(7,3);g.addArc(7,6);g.addArc(8,2);g.addArc(8,4);g.addArc(8,5);
@@ -81,9 +81,9 @@ public class Main {
 //		g.addArc(34,24);g.addArc(33,67);g.addArc(31,52);g.addArc(30,64);g.addArc(29,35);g.addArc(28,67);
 //		g.addArc(26,85);g.addArc(25,97);g.addArc(32,76);g.addArc(38,68);g.addArc(37,58);g.addArc(12,36);
 //		g.addArc(34,98);g.addArc(36,99);g.addArc(35,55);
-    	
-    	g = new RandomGraphe(5,(float) 0.5);
-    	g.export();
+
+		g = new RandomGraphe(5, 0.5, false);
+		g.export();
 
 		//System.out.println(g.toString());
 
@@ -96,14 +96,15 @@ public class Main {
 //	   System.out.println("\n *********************  Parcourt en largeur *********************");
 //	   //g.largeur();
 
+		//g.algoBrown();
 
 		System.out.println(" ******************  Coloration Degre croissant     *****************          ");
-		System.out.println("\nnombre chromatique: "+g.degreDecroissant());
+		System.out.println("\nnombre chromatique: " + g.degreDecroissant());
 
 		System.out.println(" ******************  Coloration indice croissant    *****************        ");
-		System.out.println("\nnombre chromatique: "+g.indiceCroissant());
+		System.out.println("\nnombre chromatique: " + g.indiceCroissant());
 
-        //Graphe g1=new Graphe("class Graphe.csv");
+		//Graphe g1=new Graphe("class Graphe.csv");
 		System.out.println(g.toString());
 		System.out.println(" ******************  Coloration Degre croissant     *****************          ");
 		long begin=System.nanoTime();

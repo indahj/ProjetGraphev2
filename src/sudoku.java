@@ -1,7 +1,4 @@
-import java.util.LinkedList;
-import java.util.List;
-
-import org.w3c.dom.Node;
+import java.util.ArrayList;
 
 public class sudoku extends Graphe{
 
@@ -31,13 +28,10 @@ public class sudoku extends Graphe{
 
 
 	@SuppressWarnings("null")
-	public List<Integer> créaNoeuds(int grille[][])
-	{
-		List<Integer> noeuds = null;
-		for(int i = 0 ; i<grille.length;i++)
-		{
-			for(int j = 0 ; j<grille[i].length;j++)
-			{
+	public ArrayList<Integer> creeNoeuds(int grille[][]) {
+		ArrayList<Integer> noeuds = new ArrayList<>();
+		for (int i = 0; i < grille.length; i++) {
+			for (int j = 0; j < grille[i].length; j++) {
 				g.addNoeud(grille[i][j]); //on ajoute un noeuds
 				noeuds.add(grille[i][j]); //liste de noeuds pour visualiser
 			}

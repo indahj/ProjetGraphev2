@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.LinkedList;
 
 public class Noeud {
     private int id;
@@ -85,12 +85,21 @@ public class Noeud {
 
     /*---------------le noeud a t'il une couleur?----------*/
     public boolean hasCouleur() {
-        return couleur!=-1;
+        return couleur != -1;
     }
 
     /*---------------définir la couleur du noeuds----------*/
     public void setCouleur(int couleur) {
         this.couleur = couleur;
+    }
+
+    public boolean hasUnmarkedSuccessor() {
+        for (Arc a : getSuccesseurs()) {
+            if (!a.getCible().isMark()) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
