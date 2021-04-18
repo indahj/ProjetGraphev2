@@ -52,6 +52,8 @@ public class Main {
 		g.addArc(5, 2);
 		g.addArc(5, 1);
 		g.solve();
+		g.reinitNoeuds();
+		g.solve2();
 
 		/*-------Graphe avec 100 noeuds-------*/
 //    	g=new Graphe(100);
