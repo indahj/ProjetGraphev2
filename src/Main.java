@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) 
     {
-    	Graphe g;
-    	/*----------Graphe avec 40 noeuds---------*/
+		//Graphe g;
+		/*----------Graphe avec 40 noeuds---------*/
     	/*g=new Graphe(40);
         g.addArc(0,1);g.addArc(1,3);g.addArc(1,5);g.addArc(1,6);g.addArc(1,7);g.addArc(2,1);
 		g.addArc(3,2);g.addArc(3,6);g.addArc(4,2);g.addArc(4,9);g.addArc(7,3);g.addArc(7,6);
@@ -21,7 +21,7 @@ public class Main {
 
 
 		/*----------Graphe avec 6 noeuds----------*/
-	/*	g=new Graphe(6);
+		/*g=new Graphe(6);
 		g.addArc(1,2);
 		g.addArc(6,2);
 		g.addArc(5,4);
@@ -36,6 +36,22 @@ public class Main {
 		g.addArc(3,2);
 		g.addArc(1,5);
 		g.addArc(0,5);*/
+
+		/*----------Graphe avec 6 noeuds non oriente----------*/
+		Backtrack g = new Backtrack(6);
+		g.addArc(0, 1);
+		g.addArc(1, 0);
+		g.addArc(1, 2);
+		g.addArc(2, 1);
+		g.addArc(2, 3);
+		g.addArc(2, 5);
+		g.addArc(3, 2);
+		g.addArc(4, 2);
+		g.addArc(4, 5);
+		g.addArc(5, 4);
+		g.addArc(5, 2);
+		g.addArc(5, 1);
+		g.solve();
 
 		/*-------Graphe avec 100 noeuds-------*/
 //    	g=new Graphe(100);
@@ -82,7 +98,7 @@ public class Main {
 //		g.addArc(26,85);g.addArc(25,97);g.addArc(32,76);g.addArc(38,68);g.addArc(37,58);g.addArc(12,36);
 //		g.addArc(34,98);g.addArc(36,99);g.addArc(35,55);
 
-		g = new RandomGraphe(5, 0.5, false);
+		//g = new RandomGraphe(5, 0.5, false);
 		g.export();
 
 		//System.out.println(g.toString());
@@ -95,8 +111,6 @@ public class Main {
 //
 //	   System.out.println("\n *********************  Parcourt en largeur *********************");
 //	   //g.largeur();
-
-		//g.algoBrown();
 
 		System.out.println(" ******************  Coloration Degre croissant     *****************          ");
 		System.out.println("\nnombre chromatique: " + g.degreDecroissant());

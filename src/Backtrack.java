@@ -8,10 +8,9 @@ public class Backtrack extends Graphe {
     public Backtrack(int k) {
         super(k);
         reinitNoeuds();
-        algoBrown();
     }
 
-    public int algoBrown() {
+    public int solve() {
         int[] couleurs = new int[noeuds.size()];
         Stack<Noeud> stack = new Stack<>();
         if (backtrackColor(getNoeud(0), couleurs, stack)) {
@@ -27,24 +26,28 @@ public class Backtrack extends Graphe {
     private boolean backtrackColor(Noeud n, int[] couleurs, Stack<Noeud> stack) {
         for (int c = 1; c < noeuds.size(); c++) {
             if (!couleursVoisins(n, couleurs).contains(c)) {
+                boolean needRollback = false;
                 couleurs[n.getId()] = c;
                 n.setMark(true);
                 stack.add(n);
                 if (!n.hasUnmarkedSuccessor()) {
-                    System.out.println("return true");
                     return true;
                 }
                 for (Arc a : n.getSuccesseurs()) {
                     if (!a.getCible().isMark()) {
                         if (!backtrackColor(a.getCible(), couleurs, stack)) {
+                            needRollback = true;
                             break;
                         }
                     }
                 }
-                rollback(n, couleurs, stack);
+                if (needRollback) {
+                    rollback(n, couleurs, stack);
+                } else {
+                    return true;
+                }
             }
         }
-        System.out.println("Return false");
         couleurs[n.getId()] = -1;
         n.setMark(false);
         return false;
